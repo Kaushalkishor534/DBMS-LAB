@@ -59,7 +59,6 @@ MariaDB [emp]> UPDATE EMPLOYEE_MASTER
     -> SET SAL = SAL + (SAL * 0.10)
     -> WHERE DEPTNO = 20;
 Query OK, 6 rows affected (0.020 sec)
-```
----
 Rows matched: 6  Changed: 6  Warnings: 0
 ```
+
