@@ -179,21 +179,19 @@ MariaDB [kaushal]> select ename, hiredate from employee
 ---
 ## 14. show the names of employee joined after 15 of their months.
 ```sql
-MariaDB [kaushal]> select ename, hiredate from employee
-    -> where date_format(hiredate,'%d') < 15;
-+--------+------------+
-| ename  | hiredate   |
-+--------+------------+
-| JONES  | 1981-04-02 |
-| BLAKE  | 1981-05-01 |
-| CLARK  | 1981-06-09 |
-| SCOTT  | 1982-12-09 |
-| TURNER | 1981-09-08 |
-| ADAMS  | 1983-01-12 |
-| JAMES  | 1981-12-03 |
-| FORD   | 1981-12-03 |
-+--------+------------+
-8 rows in set (0.001 sec)
+MariaDB [kaushal]> select ename from employee
+    -> where date_format(hiredate,'%d')>15;
++--------+
+| ename  |
++--------+
+| SMITH  |
+| ALLEN  |
+| WARD   |
+| MARTIN |
+| KING   |
+| MILLER |
++--------+
+6 rows in set (0.078 sec)
 ```
 ---
 ## 15. show names of employee having date of join equal to their deptno.
@@ -206,4 +204,5 @@ Empty set (0.001 sec)
 ----
 
 ---
+
 
