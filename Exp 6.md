@@ -102,6 +102,17 @@ MariaDB [kaushal]> select date_add(curdate(),interval 3 day);
 +------------------------------------+
 1 row in set (0.001 sec)
 ```
+diff method
+```sql
+MariaDB [kaushal]> select date_add(curdate(),interval (5-weekday(curdate()) + 7) %7 day);
++----------------------------------------------------------------+
+| date_add(curdate(),interval (5-weekday(curdate()) + 7) %7 day) |
++----------------------------------------------------------------+
+| 2026-02-28                                                     |
++----------------------------------------------------------------+
+1 row in set (0.001 sec)
+
+```
 ---
 ## 8. display current time.
 ```sql
@@ -204,6 +215,7 @@ Empty set (0.001 sec)
 ----
 
 ---
+
 
 
 
