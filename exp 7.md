@@ -5,9 +5,7 @@ SELECT DATEDIFF(
        CONCAT(YEAR(CURDATE()), '-12-31'),
        CURDATE()
 ) AS REMAINING_DAYS;
-```
-**OUTPUT:**
-```
+
 +----------------+
 | REMAINING_DAYS |
 +----------------+
@@ -21,9 +19,7 @@ MariaDB [kaushal]> SELECT MAX(SAL) AS MAX_SALARY,
     -> MIN(SAL) AS MIN_SALARY,
     -> MAX(SAL) - MIN(SAL) AS SALARY_DIFF
     -> FROM EMPLOYEE;
-```
-**OUTPUT:**
-```
+
 +------------+------------+-------------+
 | MAX_SALARY | MIN_SALARY | SALARY_DIFF |
 +------------+------------+-------------+
@@ -37,9 +33,7 @@ MariaDB [kaushal]> SELECT MAX(SAL) AS MAX_SALARY,
 MariaDB [kaushal]> SELECT ENAME, SAL, COMM
     -> FROM EMPLOYEE
     -> WHERE COMM > (0.25 * SAL);
- ```
-**OUTPUT:**
-```
+
 +--------+------+------+
 | ENAME  | SAL  | COMM |
 +--------+------+------+
@@ -52,9 +46,7 @@ MariaDB [kaushal]> SELECT ENAME, SAL, COMM
 MariaDB [kaushal]> SELECT ENAME,
     -> CONCAT('$', FORMAT(SAL,2)) AS SALARY
     -> FROM EMPLOYEE;
-```
-**OUTPUT:**
-```
+
 +--------+-----------+
 | ENAME  | SALARY    |
 +--------+-----------+
@@ -76,6 +68,7 @@ MariaDB [kaushal]> SELECT ENAME,
 14 rows in set (0.052 sec)
 ```
 ## Q5.Create a matrix query to display the job, salary for that job based on department number, and total salary for that job across departments.
+```sql
 MariaDB [kaushal]> SELECT JOB,
     -> SUM(CASE DEPTNO WHEN 10 THEN SAL ELSE 0 END) AS DEPT10,
     -> SUM(CASE DEPTNO WHEN 20 THEN SAL ELSE 0 END) AS DEPT20,
@@ -84,8 +77,7 @@ MariaDB [kaushal]> SELECT JOB,
     -> SUM(SAL) AS TOTAL_SALARY
     -> FROM EMPLOYEE
     -> group by job;
-```
-**OUTPUT:**
+
 +-----------+--------+--------+--------+--------+--------------+
 | JOB       | DEPT10 | DEPT20 | DEPT30 | DEPT40 | TOTAL_SALARY |
 +-----------+--------+--------+--------+--------+--------------+
@@ -105,9 +97,7 @@ MariaDB [kaushal]> SELECT COUNT(*) AS TOTAL_EMPLOYEES,
     -> SUM(CASE WHEN YEAR(HIREDATE)=1982 THEN 1 ELSE 0 END) AS "YEAR1982",
     -> SUM(CASE WHEN YEAR(HIREDATE)=1983 THEN 1 ELSE 0 END) AS "YEAR1983"
     -> FROM EMPLOYEE;
-```
-**OUTPUT:**
-```
+
 +-----------------+----------+----------+----------+----------+
 | TOTAL_EMPLOYEES | YEAR1980 | YEAR1981 | YEAR1982 | YEAR1983 |
 +-----------------+----------+----------+----------+----------+
@@ -121,9 +111,7 @@ MariaDB [kaushal]> SELECT DATE_SUB(
     ->  LAST_DAY(CURDATE()),
     -> INTERVAL (WEEKDAY(LAST_DAY(CURDATE())) + 1) DAY
     -> ) AS LAST_SUNDAY;
-```
-**OUTPUT:**
-```
+
 +-------------+
 | LAST_SUNDAY |
 +-------------+
@@ -137,9 +125,7 @@ MariaDB [kaushal]> SELECT DEPTNO, COUNT(*) AS TOTAL_EMPLOYEES
     -> FROM EMPLOYEE
     -> GROUP BY DEPTNO
     -> ORDER BY DEPTNO;
-```
-**OUTPUT:**
-```
+
 +--------+-----------------+
 | DEPTNO | TOTAL_EMPLOYEES |
 +--------+-----------------+
@@ -155,9 +141,7 @@ MariaDB [kaushal]> SELECT DEPTNO, COUNT(*) AS TOTAL_EMPLOYEES
 MMariaDB [kaushal]> SELECT JOB, COUNT(*) AS TOTAL_EMPLOYEES
     -> FROM EMPLOYEE
     -> GROUP BY JOB;
-```
-**OUTPUT:**
-```
+
 +-----------+-----------------+
 | JOB       | TOTAL_EMPLOYEES |
 +-----------+-----------------+
@@ -174,9 +158,7 @@ MMariaDB [kaushal]> SELECT JOB, COUNT(*) AS TOTAL_EMPLOYEES
 MariaDB [kaushal]> SELECT DEPTNO, SUM(SAL) AS TOTAL_SALARY
     -> FROM EMPLOYEE
     -> GROUP BY DEPTNO;
-```
-**OUTPUT:**
-```
+
 +--------+--------------+
 | DEPTNO | TOTAL_SALARY |
 +--------+--------------+
