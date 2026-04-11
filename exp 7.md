@@ -76,29 +76,26 @@ MariaDB [kaushal]> SELECT ENAME,
 14 rows in set (0.052 sec)
 ```
 ## Q5.Create a matrix query to display the job, salary for that job based on department number, and total salary for that job across departments.
-```sql
 MariaDB [kaushal]> SELECT JOB,
     -> SUM(CASE DEPTNO WHEN 10 THEN SAL ELSE 0 END) AS DEPT10,
-    -> SUM(CASE DEPTNO WHEN 10 THEN SAL ELSE 0 END) AS DEPT20,
-    -> SUM(CASE DEPTNO WHEN 10 THEN SAL ELSE 0 END) AS DEPT30,
-    -> SUM(CASE DEPTNO WHEN 10 THEN SAL ELSE 0 END) AS DEPT40,
+    -> SUM(CASE DEPTNO WHEN 20 THEN SAL ELSE 0 END) AS DEPT20,
+    -> SUM(CASE DEPTNO WHEN 30 THEN SAL ELSE 0 END) AS DEPT30,
+    -> SUM(CASE DEPTNO WHEN 40 THEN SAL ELSE 0 END) AS DEPT40,
     -> SUM(SAL) AS TOTAL_SALARY
     -> FROM EMPLOYEE
-    -> GROUP BY JOB;
+    -> group by job;
 ```
 **OUTPUT:**
-```
 +-----------+--------+--------+--------+--------+--------------+
 | JOB       | DEPT10 | DEPT20 | DEPT30 | DEPT40 | TOTAL_SALARY |
 +-----------+--------+--------+--------+--------+--------------+
-| ANALYST   |      0 |      0 |      0 |      0 |         7260 |
-| CLERK     |   1573 |   1573 |   1573 |   1573 |         5022 |
-| MANAGER   |      0 |      0 |      0 |      0 |        10014 |
-| PRESIDENT |      0 |      0 |      0 |      0 |         6050 |
-| SALESMAN  |      0 |      0 |      0 |      0 |         5750 |
+| ANALYST   |      0 |   3000 |      0 |   3000 |         6000 |
+| CLERK     |   1300 |   1900 |    950 |      0 |         4150 |
+| MANAGER   |      0 |   5425 |   2850 |      0 |         8275 |
+| PRESIDENT |      0 |   5000 |      0 |      0 |         5000 |
+| SALESMAN  |      0 |      0 |   5600 |      0 |         5600 |
 +-----------+--------+--------+--------+--------+--------------+
-5 rows in set (0.001 sec)
-
+5 rows in set (0.005 sec)
 ```
 ## Q6. Display the total number of employees and the number hired in 1980, 1981, 1982, and 1983.
 ```sql
