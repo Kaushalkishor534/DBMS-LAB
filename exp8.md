@@ -1,5 +1,5 @@
 
-### Experiment8
+# Experiment8
 
 ## 1. Display all employees with their dept name.
 ```sql
