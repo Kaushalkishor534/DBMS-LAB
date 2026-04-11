@@ -138,7 +138,7 @@ MariaDB [kaushal]> SELECT DEPTNO, COUNT(*) AS TOTAL_EMPLOYEES
 ```
 ## Q9. Display various jobs and total number of employees within each job group.
 ``` sql
-MMariaDB [kaushal]> SELECT JOB, COUNT(*) AS TOTAL_EMPLOYEES
+MariaDB [kaushal]> SELECT JOB, COUNT(*) AS TOTAL_EMPLOYEES
     -> FROM EMPLOYEE
     -> GROUP BY JOB;
 
