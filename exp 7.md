@@ -17,7 +17,7 @@ SELECT DATEDIFF(
 ```
 ## Q2. Find the highest salary, lowest salary, and the difference between them.
 ```sql
-MariaDB [Archisha]> SELECT MAX(SAL) AS MAX_SALARY,
+MariaDB [kaushal]> SELECT MAX(SAL) AS MAX_SALARY,
     -> MIN(SAL) AS MIN_SALARY,
     -> MAX(SAL) - MIN(SAL) AS SALARY_DIFF
     -> FROM EMPLOYEE;
@@ -34,7 +34,7 @@ MariaDB [Archisha]> SELECT MAX(SAL) AS MAX_SALARY,
 ## Q3. List employees whose commission is greater than 25% of their salary.
 ``` sql
 
-MariaDB [Archisha]> SELECT ENAME, SAL, COMM
+MariaDB [kaushal]> SELECT ENAME, SAL, COMM
     -> FROM EMPLOYEE
     -> WHERE COMM > (0.25 * SAL);
  ```
@@ -49,7 +49,7 @@ MariaDB [Archisha]> SELECT ENAME, SAL, COMM
 ```
 ## Q4. Display salary in dollar format.
 ``` sql
-MariaDB [Archisha]> SELECT ENAME,
+MariaDB [kaushal]> SELECT ENAME,
     -> CONCAT('$', FORMAT(SAL,2)) AS SALARY
     -> FROM EMPLOYEE;
 ```
@@ -77,7 +77,7 @@ MariaDB [Archisha]> SELECT ENAME,
 ```
 ## Q5.Create a matrix query to display the job, salary for that job based on department number, and total salary for that job across departments.
 ```sql
-MariaDB [Archisha]> SELECT JOB,
+MariaDB [kaushal]> SELECT JOB,
     -> SUM(CASE DEPTNO WHEN 10 THEN SAL ELSE 0 END) AS DEPT10,
     -> SUM(CASE DEPTNO WHEN 10 THEN SAL ELSE 0 END) AS DEPT20,
     -> SUM(CASE DEPTNO WHEN 10 THEN SAL ELSE 0 END) AS DEPT30,
@@ -102,7 +102,7 @@ MariaDB [Archisha]> SELECT JOB,
 ```
 ## Q6. Display the total number of employees and the number hired in 1980, 1981, 1982, and 1983.
 ```sql
-MariaDB [Archisha]> SELECT COUNT(*) AS TOTAL_EMPLOYEES,
+MariaDB [kaushal]> SELECT COUNT(*) AS TOTAL_EMPLOYEES,
     -> SUM(CASE WHEN YEAR(HIREDATE)=1980 THEN 1 ELSE 0 END) AS "YEAR1980",
     -> SUM(CASE WHEN YEAR(HIREDATE)=1981 THEN 1 ELSE 0 END) AS "YEAR1981",
     -> SUM(CASE WHEN YEAR(HIREDATE)=1982 THEN 1 ELSE 0 END) AS "YEAR1982",
@@ -120,7 +120,7 @@ MariaDB [Archisha]> SELECT COUNT(*) AS TOTAL_EMPLOYEES,
 ```
 ## Q7. Write a query to get the last Sunday of the current month.
 ```sql
-MariaDB [Archisha]> SELECT DATE_SUB(
+MariaDB [kaushal]> SELECT DATE_SUB(
     ->  LAST_DAY(CURDATE()),
     -> INTERVAL (WEEKDAY(LAST_DAY(CURDATE())) + 1) DAY
     -> ) AS LAST_SUNDAY;
@@ -136,7 +136,7 @@ MariaDB [Archisha]> SELECT DATE_SUB(
 ```
 ## Q8.Display department numbers and total number of employees working in each department.
 ```sql
-MariaDB [Archisha]> SELECT DEPTNO, COUNT(*) AS TOTAL_EMPLOYEES
+MariaDB [kaushal]> SELECT DEPTNO, COUNT(*) AS TOTAL_EMPLOYEES
     -> FROM EMPLOYEE
     -> GROUP BY DEPTNO
     -> ORDER BY DEPTNO;
@@ -155,7 +155,7 @@ MariaDB [Archisha]> SELECT DEPTNO, COUNT(*) AS TOTAL_EMPLOYEES
 ```
 ## Q9. Display various jobs and total number of employees within each job group.
 ``` sql
-MMariaDB [Archisha]> SELECT JOB, COUNT(*) AS TOTAL_EMPLOYEES
+MMariaDB [kaushal]> SELECT JOB, COUNT(*) AS TOTAL_EMPLOYEES
     -> FROM EMPLOYEE
     -> GROUP BY JOB;
 ```
@@ -174,7 +174,7 @@ MMariaDB [Archisha]> SELECT JOB, COUNT(*) AS TOTAL_EMPLOYEES
 ```
 ## Q10. Display department numbers and total salary for each department.
 ```sql
-MariaDB [Archisha]> SELECT DEPTNO, SUM(SAL) AS TOTAL_SALARY
+MariaDB [kaushal]> SELECT DEPTNO, SUM(SAL) AS TOTAL_SALARY
     -> FROM EMPLOYEE
     -> GROUP BY DEPTNO;
 ```
