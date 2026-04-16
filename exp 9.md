@@ -1,5 +1,5 @@
 
-### Experimente 9
+### Experiment 9
 
 ## Q1.Display the name of emp name who earns highest salary.
 ```sql
